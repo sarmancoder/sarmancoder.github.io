@@ -8,7 +8,6 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { PropsWithChildren } from "react";
-import { BackgroundRippleEffect } from "./ui/background-ripple-effect";
 import { BackgroundBeams } from "./ui/background-beams";
 
 
