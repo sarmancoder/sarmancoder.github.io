@@ -6,13 +6,13 @@ import { ContactForm } from './ContactForm'
 export default function DialogContactForm() {
     return (
         <Dialog>
-            <DialogTrigger>
+            <DialogTrigger render={<div />}>
                 <Button className="mt-8">Contáctame</Button>
             </DialogTrigger>
             <DialogContent>
                 <DialogHeader>
                     <DialogTitle>¿Que necesitas?</DialogTitle>
-                    <DialogDescription>
+                    <DialogDescription  render={<div />}>
                         <ContactForm />
                     </DialogDescription>
                 </DialogHeader>
