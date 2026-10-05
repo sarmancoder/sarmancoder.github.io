@@ -11,6 +11,9 @@ importers:
       '@base-ui/react':
         specifier: ^1.8.0
         version: 1.8.0(@types/react@19.3.0)(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
+      '@dev.icons/react':
+        specifier: ^1.1.0
+        version: 1.1.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       '@hookform/resolvers':
         specifier: ^5.9.1
         version: 5.9.1(ajv-formats@2.1.1(ajv@8.20.0))(ajv@8.20.0)(react-hook-form@7.89.0(@types/react@19.3.0)(react@19.2.8))(zod@4.6.5)
@@ -238,6 +241,12 @@ packages:
     peerDependenciesMeta:
       '@types/react':
         optional: true
+
+  '@dev.icons/react@1.1.0':
+    resolution: {integrity: sha512-N4JqK6zeyL7A9ChnU7pKdFm9Zj8lzGpQX7rqKM4iBbaADL3iaZygAvjgpSnYtkGYGceYosbIpecikcTgP/0pnw==}
+    peerDependencies:
+      react: '>= 16.8'
+      react-dom: '>= 16.8'
 
   '@dotenvx/dotenvx@1.75.1':
     resolution: {integrity: sha512-/BITOC9dmS/edY2zQwZNicQ059O6RKabtQfyEafV0nGtfYRNHYy1DIPiYVcov40+tob9hfmBnbR963dS+EQ1DQ==}
@@ -3279,6 +3288,11 @@ snapshots:
       use-sync-external-store: 1.7.0(react@19.2.8)
     optionalDependencies:
       '@types/react': 19.3.0
+
+  '@dev.icons/react@1.1.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)':
+    dependencies:
+      react: 19.2.8
+      react-dom: 19.2.8(react@19.2.8)
 
   '@dotenvx/dotenvx@1.75.1':
     dependencies:
