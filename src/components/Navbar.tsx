@@ -26,6 +26,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { useScrollSpy } from "@/hooks/useScrollSpy";
+import Link from "next/link";
 interface MenuItem {
   title: string;
   url: string;
@@ -134,7 +135,7 @@ const links: MenuItem[] = [
 
 export default function NavBar({menu = links,
   logo = {
-    url: "https://www.shadcnblocks.com",
+    url: "/",
     src: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/logos/shadcnblockscom-icon.svg",
     alt: "logo",
     title: "Raúl Contreras",
@@ -153,7 +154,7 @@ export default function NavBar({menu = links,
         <nav className="hidden items-center justify-between lg:flex">
           <div className="flex items-center gap-6">
             {/* Logo */}
-            <a href={logo.url} className="flex items-center gap-2">
+            <Link href={logo.url} className="flex items-center gap-2">
               {/* <img
                 src={logo.src}
                 className="max-h-8 dark:invert"
@@ -161,7 +162,7 @@ export default function NavBar({menu = links,
               <span className="text-lg font-semibold tracking-tighter">
                 {logo.title}
               </span>
-            </a>
+            </Link>
             <div className="flex items-center">
               <NavigationMenu>
                 <NavigationMenuList>
@@ -180,12 +181,9 @@ export default function NavBar({menu = links,
         <div className="block lg:hidden">
           <div className="flex items-center justify-between">
             {/* Logo */}
-            <a href={logo.url} className="flex items-center gap-2">
-              <img
-                src={logo.src}
-                className="max-h-8 dark:invert"
-                alt={logo.alt} />
-            </a>
+            <Link href={logo.url} className="flex items-center gap-2 text-muted-foreground text-lg">
+              {logo.title}
+            </Link>
             <Sheet>
               <SheetTrigger render={<Button variant="outline" size="icon" />}><Menu className="size-4" /></SheetTrigger>
               <SheetContent className="overflow-y-auto">
