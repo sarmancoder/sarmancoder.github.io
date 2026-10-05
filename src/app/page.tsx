@@ -1,5 +1,5 @@
-import { ContactForm } from "@/components/ContactForm";
-import { MyFooter } from "@/components/MyFooter";
+import { ContactCTA } from "@/components/ContactCTA";
+import DialogContactForm from "@/components/DialogContactForm";
 import { MyOtherHero } from "@/components/MyOtherHero";
 import NavBar from "@/components/Navbar";
 import MarqueeSection from "@/components/shadcn-space/marquee/MarqueeSection";
@@ -9,14 +9,16 @@ export default function Home() {
   return (
     <>
       <NavBar />
-      <MyOtherHero />
+      <MyOtherHero>
+        <DialogContactForm />
+      </MyOtherHero>
       {/* <MyHero /> */}
       <VSection heading="Tecnologías con las que he trabajado">
         <MarqueeSection />
       </VSection>
-      <MyFooter>
-        <ContactForm />
-      </MyFooter>
+      <ContactCTA>
+        <DialogContactForm />
+      </ContactCTA>
     </>
   );
 }

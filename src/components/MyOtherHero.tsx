@@ -4,6 +4,7 @@ import { cn } from "cn";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { PropsWithChildren } from "react";
 
 interface Image {
   src: string;
@@ -62,7 +63,7 @@ const defaultProps: Hero1Props = {
   },
 };
 
-export function MyOtherHero(props: Props) {
+export function MyOtherHero({children, ...props}: PropsWithChildren<Props>) {
   const { badge, heading, description, buttons, image, className } = {
     ...defaultProps,
     ...props,
@@ -86,12 +87,7 @@ export function MyOtherHero(props: Props) {
               {description}
             </p>
             <div className="flex w-full flex-col justify-center gap-2 sm:flex-row lg:justify-start">
-              {buttons?.primary && (
-                <Button size="lg" className="w-full sm:w-auto" render={<a href={buttons.primary.url} />} nativeButton={false}>{buttons.primary.text}<ArrowRight className="size-4" /></Button>
-              )}
-              {buttons?.secondary && (
-                <Button variant="outline" size="lg" className="w-full sm:w-auto" render={<a href={buttons.secondary.url} />} nativeButton={false}>{buttons.secondary.text}</Button>
-              )}
+              {children}
             </div>
           </div>
           <Image
