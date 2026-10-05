@@ -7,7 +7,7 @@ export default function DialogContactForm() {
     return (
         <Dialog>
             <DialogTrigger render={<div />}>
-                <Button className="mt-8">Contáctame</Button>
+                <Button  className="lg:( text-xl h-13 w-50 rounded-full cursor-pointer)">Contáctame</Button>
             </DialogTrigger>
             <DialogContent>
                 <DialogHeader>

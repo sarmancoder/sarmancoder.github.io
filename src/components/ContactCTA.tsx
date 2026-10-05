@@ -72,7 +72,7 @@ export function ContactCTA({children, ...props}: PropsWithChildren<Props>) {
             <div className="mb-2 flex items-center gap-2">
               <h3 className="text-3xl font-semibold">{heading}</h3>
             </div>
-            <p className="text-muted-foreground">{description}</p>
+            <p className="text-muted-foreground mb-5">{description}</p>
             {children}
           </div>
         </div>

@@ -1,11 +1,16 @@
-import { ArrowRight, ArrowUpRight } from "lucide-react";
-import Image from 'next/image'
 import { cn } from "cn";
-
+import { ArrowUpRight } from "lucide-react";
+import Image from 'next/image';
+import {
+  RotatingText,
+  RotatingTextContainer,
+} from '@/components/animate-ui/primitives/texts/rotating';
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { PropsWithChildren } from "react";
-import { MorphingText } from "./ui/morphing-text";
+import { BackgroundRippleEffect } from "./ui/background-ripple-effect";
+import { BackgroundBeams } from "./ui/background-beams";
+
 
 interface Image {
   src: string;
@@ -65,14 +70,15 @@ const defaultProps: Hero1Props = {
 };
 
 export function MyOtherHero({ children, ...props }: PropsWithChildren<Props>) {
-  const { badge, heading, description, buttons, image, className } = {
+  const { badge, heading, description, image, className } = {
     ...defaultProps,
     ...props,
   };
 
   return (
-    <section className={cn("py-32", className)}>
-      <div className="container mx-auto">
+    <section className={cn("py-16 md:py-0 relative min-h-screen w-full flex flex-col justify-center overflow-hidden", className)}>
+      {/* Agregamos relative z-10 para elevación sobre el fondo */}
+      <div className="container relative z-10 mx-auto">
         <div className="grid items-center gap-6 lg:grid-cols-2 lg:gap-12">
           <div className="flex flex-col items-center gap-5 text-center lg:items-start lg:text-left">
             {badge && (
@@ -85,14 +91,15 @@ export function MyOtherHero({ children, ...props }: PropsWithChildren<Props>) {
               {heading}
             </h1>
             <div className="max-w-5xl text-muted-foreground lg:text-xl">
-  <span>Construyo productos digitales que generan </span>
-  <span className="inline-flex min-w-[140px]">
-    <MorphingText
-      texts={["impacto", "valor", "resultados", "crecimiento"]}
-      className="text-muted-foreground lg:text-xl"
-    />
-  </span>
-</div>
+              <span>{description} </span>
+              <span className="inline-flex w-[9em] min-w-[140px] text-primary font-bold align-baseline">
+                <RotatingTextContainer
+                  text={["impacto", "valor", "resultados", "crecimiento"]}
+                >
+                  <RotatingText />
+                </RotatingTextContainer>
+              </span>
+            </div>
             <div className="flex w-full flex-col justify-center gap-2 sm:flex-row lg:justify-start">
               {children}
             </div>
@@ -102,9 +109,13 @@ export function MyOtherHero({ children, ...props }: PropsWithChildren<Props>) {
             alt="Hero image"
             width={200}
             height={700}
-            className="aspect-video w-full rounded-md border border-border object-cover object-center dark:hidden" />
+            className="aspect-video w-full rounded-md border border-border object-cover object-center dark:hidden"
+          />
         </div>
       </div>
+
+      {/* El componente de fondo queda detrás del contenido */}
+      <BackgroundBeams className="z-0" />
     </section>
   );
 }
