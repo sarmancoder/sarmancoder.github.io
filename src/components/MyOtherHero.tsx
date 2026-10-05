@@ -5,6 +5,7 @@ import { cn } from "cn";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { PropsWithChildren } from "react";
+import { MorphingText } from "./ui/morphing-text";
 
 interface Image {
   src: string;
@@ -36,7 +37,7 @@ interface HeroBasicProps {
 }
 
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type
-interface Hero1Props extends HeroBasicProps {}
+interface Hero1Props extends HeroBasicProps { }
 type Props = Partial<Hero1Props>;
 
 const defaultProps: Hero1Props = {
@@ -45,7 +46,7 @@ const defaultProps: Hero1Props = {
     announcement: "Check out our latest updates",
   },*/
   heading: "Raúl Contreras Morán",
-  description: "Construyo productos digitales que impulsan el crecimiento de tu negocio.",
+  description: "Construyo productos digitales que hacen crecer tu",
   buttons: {
     primary: {
       text: "Contáctame",
@@ -63,7 +64,7 @@ const defaultProps: Hero1Props = {
   },
 };
 
-export function MyOtherHero({children, ...props}: PropsWithChildren<Props>) {
+export function MyOtherHero({ children, ...props }: PropsWithChildren<Props>) {
   const { badge, heading, description, buttons, image, className } = {
     ...defaultProps,
     ...props,
@@ -83,9 +84,15 @@ export function MyOtherHero({children, ...props}: PropsWithChildren<Props>) {
             <h1 className="max-w-xl text-4xl font-semibold tracking-tight text-pretty md:text-5xl lg:max-w-3xl lg:text-6xl">
               {heading}
             </h1>
-            <p className="max-w-5xl text-balance text-muted-foreground lg:text-xl">
-              {description}
-            </p>
+            <div className="max-w-5xl text-muted-foreground lg:text-xl">
+  <span>Construyo productos digitales que generan </span>
+  <span className="inline-flex min-w-[140px]">
+    <MorphingText
+      texts={["impacto", "valor", "resultados", "crecimiento"]}
+      className="text-muted-foreground lg:text-xl"
+    />
+  </span>
+</div>
             <div className="flex w-full flex-col justify-center gap-2 sm:flex-row lg:justify-start">
               {children}
             </div>
