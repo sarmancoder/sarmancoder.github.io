@@ -10,7 +10,6 @@ import { Button } from "@/components/ui/button";
 import { PropsWithChildren } from "react";
 import { BackgroundBeams } from "./ui/background-beams";
 
-
 interface Image {
   src: string;
   alt: string;
@@ -108,7 +107,7 @@ export function MyOtherHero({ children, ...props }: PropsWithChildren<Props>) {
             alt="Hero image"
             width={200}
             height={700}
-            className="aspect-video w-full rounded-md border border-border object-cover object-center dark:hidden"
+            className="aspect-video w-full rounded-md border border-border object-cover object-center"
           />
         </div>
       </div>

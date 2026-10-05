@@ -147,7 +147,7 @@ export default function NavBar({menu = links,
   const y = useScrollSpy()
   return (
     <section className={cn("py-4 fixed top-0 left-0 right-0 z-50 transition-colors duration-500 ease-in-out bg-white/0", className, {
-      'bg-white': y > 120
+      'bg-(--background)': y > 120
     })}>
       <div className="px-2">
         {/* Desktop Menu */}
