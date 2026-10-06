@@ -43,7 +43,6 @@ export function MyFloatingDock() {
   return (
     <div className="flex items-center fixed bottom-[20px] z-50 justify-center w-full">
       <FloatingDock
-        mobileClassName="translate-y-20"
         items={links}
       />
     </div>
